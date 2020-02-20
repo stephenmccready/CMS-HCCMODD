@@ -1,3 +1,4 @@
+
 SET ANSI_NULLS ON
 GO
 
@@ -6,13 +7,13 @@ GO
 
 SET ANSI_PADDING ON
 GO
-
+IF OBJECT_ID('[tbl_HCCMODD_J_record]') IS NOT NULL DROP TABLE [tbl_HCCMODD_J_record]
 CREATE TABLE [dbo].[tbl_HCCMODD_J_record](
 	[ContractNumber] [char](5) NULL,			-- Derived from the filename
 	[RunDate] [char](8) NULL,					-- Derived from the filename
 	[PaymentYearAndMonth] [char](6) NULL,		-- Derived from the filename
 	[RecordTypeCode] [varchar](1) NULL,			-- 1 Begin J Record
-	[BeneficiaryIdentifier] [varchar](12) NULL,
+	[BeneficiaryIdentifier] [varchar](11) NULL,
 	[BeneficiaryLastName] [varchar](12) NULL,
 	[BeneficiaryFirstName] [varchar](7) NULL,
 	[BeneficiaryInitial] [varchar](1) NULL,		-- 5
@@ -132,29 +133,29 @@ CREATE TABLE [dbo].[tbl_HCCMODD_J_record](
 	[DiseaseCoefficientsHCC188] [varchar](1) NULL,
 	[DiseaseCoefficientsHCC189] [varchar](1) NULL,	-- 120
 	[DiseaseInteractionsHCC47_gCancer] [varchar](1) NULL,
-	[DiseaseInteractionsHCC85_gDiabetesCHF] [varchar](1) NULL,
-	[DiseaseInteractionsHCC85_gCopdCF] [varchar](1) NULL,
-	[DiseaseInteractionsHCC85_gRenal_v24] [varchar](1) NULL,
-	[DiseaseInteractionsHCC85_gCopdCFCARDRESPFAIL] [varchar](1) NULL,	-- 125
+	[DiseaseInteractionsDiabetesCHF] [varchar](1) NULL,
+	[DiseaseInteractionsCHF_gCopdCF] [varchar](1) NULL,
+	[DiseaseInteractionsHCC85_gRenalv24] [varchar](1) NULL,
+	[DiseaseInteractionsgCopdCF_CARDRESPFAIL] [varchar](1) NULL,	-- 125
 	[DiseaseInteractionsHCC85_HCC96] [varchar](1) NULL,
 	[DiseaseInteractionsgSubstanceUseDisorder_gPsych] [varchar](1) NULL,
-	[DiseaseInteractionsSEPSISPRESSUREULCER] [varchar](1) NULL,
-	[DiseaseInteractionsSEPSISARTIFOPENINGS] [varchar](1) NULL,
-	[DiseaseInteractionsARTOPENINGSPRESSUREULCER] [varchar](1) NULL,	-- 130
-	[DiseaseInteractionsgCopdCFASPSPECBACTPNEUM] [varchar](1) NULL,
-	[DiseaseInteractionsASPSPECBACTPNEUMPRESULC] [varchar](1) NULL,
-	[DiseaseInteractionsSEPSISASPSPECBACTPNEUM] [varchar](1) NULL,
-	[DiseaseInteractionsSCHIZOPHRENIAgCopdCF] [varchar](1) NULL,
-	[DiseaseInteractionsSCHIZOPHRENIACHF] [varchar](1) NULL,	-- 135
+	[DiseaseInteractionsSEPSIS_PRESSUREULCER] [varchar](1) NULL,
+	[DiseaseInteractionsSEPSIS_ARTIFOPENINGS] [varchar](1) NULL,
+	[DiseaseInteractionsARTOPENINGS_PRESSUREULCER] [varchar](1) NULL,	-- 130
+	[DiseaseInteractionsgCopdCF_ASPSPECBACTPNEUM] [varchar](1) NULL,
+	[DiseaseInteractionsASPSPECBACTPNEUM_PRESULC] [varchar](1) NULL,
+	[DiseaseInteractionsSEPSIS_ASPSPECBACTPNEUM] [varchar](1) NULL,
+	[DiseaseInteractionsSCHIZOPHRENIA_gCopdCF] [varchar](1) NULL,
+	[DiseaseInteractionsSCHIZOPHRENIA_CHF] [varchar](1) NULL,	-- 135
 	[DiseaseInteractionsSCHIZOPHRENIA_SEIZURES] [varchar](1) NULL,
-	[DisabledDiseaseDISABLEDHCC85] [varchar](1) NULL,
-	[DisabledDiseaseeDISABLEDPRESSUREULCER] [varchar](1) NULL,
-	[DisabledDiseaseDISABLEDHCC161] [varchar](1) NULL,
-	[DisabledDiseaseDISABLEDHCC39] [varchar](1) NULL,	-- 140
-	[DisabledDiseaseDISABLEDHCC77] [varchar](1) NULL,
-	[DisabledDiseaseDISABLEDHCC6] [varchar](1) NULL,
-	[PaymentHCCCount] [varchar](1) NULL,
-	[Filler4] [varchar](22) NULL,			-- End J Record
+	[DisabledDiseaseDISABLED_HCC85] [varchar](1) NULL,
+	[DisabledDiseaseDISABLED_PRESSUREULCER] [varchar](1) NULL,
+	[DisabledDiseaseDISABLED_HCC161] [varchar](1) NULL,
+	[DisabledDiseaseDISABLED_HCC39] [varchar](1) NULL,	-- 140
+	[DisabledDiseaseDISABLED_HCC77] [varchar](1) NULL,
+	[DisabledDiseaseDISABLED_HCC6] [varchar](1) NULL,
+	[PaymentHCCCount] [varchar](2) NULL,
+	[Filler1] [varchar](22) NULL,			-- End J Record
 	[ImportFileName] [varchar](64) NULL,	-- Derived from the filename
 	[ImportDate] [datetime] NULL
 ) ON [PRIMARY]
@@ -166,5 +167,3 @@ Create Index ix_ImportFileName On tbl_HCCMODD_J_record(ImportFileName)
 
 SET ANSI_PADDING OFF
 GO
-
-
