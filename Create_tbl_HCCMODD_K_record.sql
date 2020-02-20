@@ -1,4 +1,3 @@
-
 SET ANSI_NULLS ON
 GO
 
@@ -8,12 +7,14 @@ GO
 SET ANSI_PADDING ON
 GO
 
+IF OBJECT_ID('[tbl_HCCMODD_K_record]') IS NOT NULL DROP TABLE [tbl_HCCMODD_K_record]
+
 CREATE TABLE [dbo].[tbl_HCCMODD_K_record](
 	[ContractNumber] [char](5) NULL,			-- Derived from the filename
 	[RunDate] [char](8) NULL,					-- Derived from the filename
 	[PaymentYearAndMonth] [char](6) NULL,		-- Derived from the filename
 	[RecordTypeCode] [varchar](1) NULL,			-- 1 Begin K Record
-	[BeneficiaryIdentifier] [varchar](12) NULL,
+	[BeneficiaryIdentifier] [varchar](11) NULL,
 	[BeneficiaryLastName] [varchar](12) NULL,
 	[BeneficiaryFirstName] [varchar](7) NULL,
 	[BeneficiaryInitial] [varchar](1) NULL,		-- 5
@@ -129,24 +130,24 @@ CREATE TABLE [dbo].[tbl_HCCMODD_K_record](
 	[DiseaseInteractionsHCC85_gDiabetesMellit] [varchar](1) NULL,	-- 115
 	[DiseaseInteractionsHCC85_gCopdCF] [varchar](1) NULL,
 	[DiseaseInteractionsHCC85_gRenal] [varchar](1) NULL,
-	[DiseaseInteractionsHCC85_gRespDepandArregCopdCF] [varchar](1) NULL,
+	[DiseaseInteractionsgRespDepandArre_gCopdCF] [varchar](1) NULL,
 	[DiseaseInteractionsHCC85_HCC96] [varchar](1) NULL,
 	[DiseaseInteractionsgSubstanceAbuse_gPsychiatric] [varchar](1) NULL,-- 120
-	[DiseaseInteractionsSEPSISPRESSUREULCER] [varchar](1) NULL,
-	[DiseaseInteractionsSEPSISARTIFOPENINGS] [varchar](1) NULL,
-	[DiseaseInteractionsARTOPENINGSPRESSUREULCER] [varchar](1) NULL,
-	[DiseaseInteractionsgCopdCFASPSPECBACTPNEUM] [varchar](1) NULL,
-	[DiseaseInteractionsASPSPECBACTPNEUMPRESULC] [varchar](1) NULL,		-- 125
-	[DiseaseInteractionsSEPSISASPSPECBACTPNEUM] [varchar](1) NULL,
-	[DiseaseInteractionsSCHIZOPHRENIAgCopdCF] [varchar](1) NULL,
-	[DiseaseInteractionsSCHIZOPHRENIACHF] [varchar](1) NULL,
+	[DiseaseInteractionsSEPSIS_PRESSUREULCER] [varchar](1) NULL,
+	[DiseaseInteractionsSEPSIS_ARTIFOPENINGS] [varchar](1) NULL,
+	[DiseaseInteractionsARTOPENINGS_PRESSUREULCER] [varchar](1) NULL,
+	[DiseaseInteractionsgCopdCF_ASPSPECBACTPNEUM] [varchar](1) NULL,
+	[DiseaseInteractionsASPSPECBACTPNEUM_PRESULC] [varchar](1) NULL,		-- 125
+	[DiseaseInteractionsSEPSIS_ASPSPECBACTPNEUM] [varchar](1) NULL,
+	[DiseaseInteractionsSCHIZOPHRENIA_gCopdCF] [varchar](1) NULL,
+	[DiseaseInteractionsSCHIZOPHRENIA_CHF] [varchar](1) NULL,
 	[DiseaseInteractionsSCHIZOPHRENIA_SEIZURES] [varchar](1) NULL,
-	[DisabledDiseaseDISABLEDHCC85] [varchar](1) NULL,	-- 130
-	[DisabledDiseaseeDISABLEDPRESSUREULCER] [varchar](1) NULL,
-	[DisabledDiseaseDISABLEDHCC161] [varchar](1) NULL,
-	[DisabledDiseaseDISABLEDHCC39] [varchar](1) NULL,
-	[DisabledDiseaseDISABLEDHCC77] [varchar](1) NULL,
-	[DisabledDiseaseDISABLEDHCC6] [varchar](1) NULL,	-- 135
+	[DisabledDiseaseDISABLED_HCC85] [varchar](1) NULL,	-- 130
+	[DisabledDiseaseDISABLED_PRESSUREULCER] [varchar](1) NULL,
+	[DisabledDiseaseDISABLED_HCC161] [varchar](1) NULL,
+	[DisabledDiseaseDISABLED_HCC39] [varchar](1) NULL,
+	[DisabledDiseaseDISABLED_HCC77] [varchar](1) NULL,
+	[DisabledDiseaseDISABLED_HCC6] [varchar](1) NULL,	-- 135
 	[Filler4] [varchar](31) NULL,			-- End K Record
 	[ImportFileName] [varchar](64) NULL,	-- Derived from the filename
 	[ImportDate] [datetime] NULL
